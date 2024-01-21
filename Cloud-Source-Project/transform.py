@@ -1,8 +1,6 @@
 import json
-
 import pandas as pd
 from pandas import json_normalize
-#from database import Database
 from datasources import DataSources
 import os
 
