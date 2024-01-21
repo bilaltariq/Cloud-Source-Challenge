@@ -1,5 +1,5 @@
 # Cloud-Source-Challenge
-The project is part of Cloud Source Assignment for Position of Data Engineer. 
+The project is part of Cloud Source Assignment. 
 
 # How to set up and run the data pipeline?
 Clone the git repository and run main.py. Just need to make sure the 'sales_data.csv' is available in current working directory. 
