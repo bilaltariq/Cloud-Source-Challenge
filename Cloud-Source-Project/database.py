@@ -41,11 +41,11 @@ class Database:
         except sqlite3.Error as e:
             print(f"Error: Unable to create table {table_name}. {e}")
 
-    def insert_dataframe(self, table_name, dataframe, if_exists_m='append'):
+    def insert_dataframe(self, table_name, dataframe, if_exists_m='replace'):
         try:
             # Use the to_sql method to insert the DataFrame into the database
             dataframe.to_sql(table_name, self.connection, if_exists=if_exists_m, index=False)
-            print(f"Data inserted into table {table_name}.")
+            print(f"Data inserted into table {table_name}. Number of rows inserted: {len(dataframe)} \n")
 
             # Commit the changes
             self.connection.commit()
@@ -69,11 +69,13 @@ class Database:
 
     def initialize_tables(self):
         self.connect()
+        print('Initializing Tables:')
         sales_table = "dwd_sales_data"
         columns_dict_sales_table = {"id": "INTEGER PRIMARY KEY", "order_id": "INTEGER", "customer_id": "INTEGER",
                                     "product_id": "INTEGER", "quantity": "INTEGER", "price": "DECIMAL",
                                     "order_date": "DATE"}
         self.create_table(sales_table, columns_dict_sales_table)
+
 
         users_data_table = "dim_users"
         columns_dict_users_data_table = {"id": "INTEGER", "name": "TEXT", "username": "TEXT", "email": "TEXT",
@@ -82,9 +84,11 @@ class Database:
                                          "name": "TEXT", "catchPhrase": "TEXT", "bs": "TEXT"}
         self.create_table(users_data_table, columns_dict_users_data_table)
 
+
         weather_table = "weather_info_raw"
         columns_dict_weather_table = {"id": "INTEGER PRIMARY KEY", "lat": "DECIMAL", "lng": "DECIMAL",
                                       "feature": "TEXT"}
         self.create_table(weather_table, columns_dict_weather_table)
 
         self.close_connection()
+        print('Initializing Tables Complete.\n')
