@@ -7,7 +7,7 @@ from querymgt import QueryMgmt
 SLSH = os.path.sep
 cwd = os.getcwd()
 
-db_name = 'primary.db'
+db_name = cwd + SLSH + 'Database' + SLSH + 'primary.db'
 db_instance = Database(db_name)
 db_instance.initialize_tables()
 transform_data = TransformData(dbinstance=db_instance)
@@ -36,12 +36,12 @@ def save_option(df):
     save_choice = input("Do you want to save the result as a CSV file? (yes/no): ").lower()
     if save_choice == 'yes':
         file_name = input("Enter the CSV file name (without extension): ")
-        df.to_csv(f"{file_name}.csv", index=False)
+        df.to_csv(cwd + SLSH + 'Outputs' + SLSH + f"{file_name}.csv", index=False)
         print(f"Result saved as {file_name}.csv")
 
 
 def main():
-    sales_file_path = cwd + SLSH + 'sales_data.csv'
+    sales_file_path = cwd + SLSH + 'Inputs' + SLSH + 'sales_data.csv'
     link_to_json = "https://jsonplaceholder.typicode.com/users"
     weatherApi = "https://api.openweathermap.org/data/2.5/weather?"
     key = "b251aa99ea5b80b71785ff34d7da8056"

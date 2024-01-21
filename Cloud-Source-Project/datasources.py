@@ -2,11 +2,13 @@ import pandas as pd
 from pandas import json_normalize
 from database import Database
 import requests
-
+import os
+cwd = os.getcwd()
+SLSH = os.path.sep
 
 class DataSources:
     def __init__(self):
-        db_name = 'primary.db'
+        db_name = cwd + SLSH + 'Database' + SLSH + 'primary.db'
         self.db_instance = Database(db_name)
 
     def get_weather_data(self, url):

@@ -83,6 +83,6 @@ class QueryMgmt:
                                                                                   Number_of_Unique_Custumers=(
                                                                                       'customer_id',
                                                                                       pd.Series.nunique)).sort_values(
-            by='weather_description', ascending=False)
+            by='weather_description', ascending=False).reset_index()
         # self.save_option(result)
         return result
