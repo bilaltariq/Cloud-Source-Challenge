@@ -13,6 +13,11 @@ The project is divided into four class.
 5. querymgmt.py: This class consists of all queries that are request, as part of the project. It uses final table that is created after transformation of all three data sources.
 
 # Schema Details
+1. 1.1 relation between Users and Weather.
+2. 1.N (many) relation between Users and Sales.
+Column info this diagram below.
+
+![Untitled](https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/16e2d5ae-3a64-4f5e-9e3f-4d51a8dfd60f)
 
 # Data Transformations
 
