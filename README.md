@@ -22,6 +22,24 @@ Column info this diagram below.
 # Data Transformations
 
 # Query Results / Visuals
+All query result will be shown on cmd once main.py is executed. After db structure and transformation you should see following options (as shown below). You can select any option with an integer, and the result will be shown. After that you will see the result, you can also download the result as CSV. It will be saved in 'Outputs' folder.
+1. Options
+
+   
+  <img width="350" alt="image" src="https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/45d19fc7-5ce2-4aea-92bf-3ad2e744aa4e">
+
+2. Result (after select 1 in options)
+   
+
+  <img width="350" alt="image" src="https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/a5080a27-36e2-4c2f-bc98-a415fc4815d1">
+
+3. Save as CSV
+
+
+  <img width="350" alt="image" src="https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/c2ae32a6-befc-4c3b-a4bc-2f55f3dc642b">
+
+
+
 
 
 
