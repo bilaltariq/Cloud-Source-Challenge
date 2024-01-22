@@ -21,7 +21,7 @@ Column info this diagram below.
 
 # Data Transformations
 
-# Query Results / Visuals
+# Query Results
 All query result will be shown on cmd once main.py is executed. After db structure and transformation you should see following options (as shown below). You can select any option with an integer, and the result will be shown. After that you will see the result, you can also download the result as CSV. It will be saved in 'Outputs' folder.
 1. Options
 
@@ -38,7 +38,15 @@ All query result will be shown on cmd once main.py is executed. After db structu
 
   <img width="350" alt="image" src="https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/c2ae32a6-befc-4c3b-a4bc-2f55f3dc642b">
 
+#Visualizations
 
+1. Comparision on MoM bassis for number of Unique Customers vs Customers.
+   
+![newplot](https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/5f1449df-96f7-4699-97b0-36df3c542602)
+
+2. MoM comparision with total orders and Sales.
+   
+![newplot (1)](https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/edff2eb9-e3da-48f9-b730-96b8084bd81d)
 
 
 
