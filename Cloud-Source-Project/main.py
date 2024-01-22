@@ -132,6 +132,6 @@ def main():
 
 if __name__ == '__main__':
     """
-    Program begins from here.
+    Program begins from here. main()
     """
     main()
