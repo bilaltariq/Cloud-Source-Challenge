@@ -11,7 +11,7 @@ SLSH = os.path.sep
 cwd = os.getcwd()
 
 """
-Setting up sqlite3 database. Also it initializes Database class,
+Setting up sqlite3 database. It also initializes Database class,
 which contains all dynamic methods to related to DB Management.
 """
 db_name = cwd + SLSH + 'Database' + SLSH + 'primary.db'
@@ -21,7 +21,7 @@ transform_data = TransformData(dbinstance=db_instance)
 
 """
 Main worker class.
-It perform ELT for all data sources (where required)
+It perform ELT for all data sources.
 """
 
 
@@ -77,7 +77,7 @@ def main():
     """
     All queries are in QueryMgmt. We pass the sales_user_weather_df in QueryMgmt.
     This class has all business queries.
-    .transformation() add columns like qty_x_price, year, month, day, quarter.
+    .transformation() add columns like qty_x_price, year, month, day, quarter to the Dataframe.
     """
     get_query_result = QueryMgmt(sales_user_weather_df)
     get_query_result.transformation()
