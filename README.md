@@ -2,7 +2,10 @@
 The project is part of Cloud Source Assignment. 
 
 # How to set up and run the data pipeline?
-Clone the Git repository and execute main.py. Ensure that 'sales_data.csv' is available in the Inputs folder (it is present by default).
+Clone the Git repository; run pip install -r requirement.txt to download all libraries. After that run execute main.py. Ensure that 'sales_data.csv' is available in the Inputs folder (it is present by default).
+
+The program fetches data from all sources, stores it in SQLite3, and provides a list of queries for user selection (see "Query Result" section). Type 'exit' to exit the program.
+
 
 # Code Structure
 The project is divided into four class. 
