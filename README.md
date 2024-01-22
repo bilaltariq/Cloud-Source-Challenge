@@ -2,12 +2,12 @@
 The project is part of Cloud Source Assignment. 
 
 # How to set up and run the data pipeline?
-Clone the git repository and run main.py. Just need to make sure the 'sales_data.csv' is available in current working directory. 
+Clone the Git repository and execute main.py. Ensure that 'sales_data.csv' is available in the Inputs folder (it is present by default).
 
 # Code Structure
 The project is divided into four class. 
-1. main.py: This class is the point where our program will start to run.
-2. database.py: Since we are using sqlite3 as our datatase, this class have dynamic method to creating tables, inserting datatables and select data from database.
+1. main.py: This class serves as the starting point for our program.
+2. database.py: Utilizing SQLite3 as our database, this class dynamically handles table creation, data insertion, and data retrieval from the database
 3. datasources.py: This class gets data from all data sources i.e. Sales Data, Users Data and Weather Data.
 4. transform.py: This class uses the data from datasources.py and transforms/make the data is more relational form.
 5. querymgmt.py: This class consists of all queries that are request, as part of the project. It uses final table that is created after transformation of all three data sources.
@@ -20,9 +20,21 @@ Column info this diagram below.
 ![Untitled](https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/16e2d5ae-3a64-4f5e-9e3f-4d51a8dfd60f)
 
 # Data Transformations
+All transformations are available in transform.py.
+
+1. Sales Data: No data underwent transformation; however, new columns, including qty_x_price, Year, Month, Day, and Year-Month, have been added or computed.
+Method: transform.transform_sales_data()
+
+2. User Data: The data is initially in JSON format, then it is converted into a DataFrame. During this process, all nested dictionaries are expanded to structure the data in a more relational form.
+Method: transform.raw_users_data(), transform.transform_users_data()
+
+3. Weather Data: There are two parts for weather data.
+   a. API Data Retrieval: To reduce API calls, we extract unique lat-lon combinations from user data. We check if these combinations have been fetched before; if yes, no new API request is made. If not, we retrieve the data from the API and store it in the database.
+   b. After finalizing the raw weather table, we follow a similar process as with the user's data, converting JSON data to a DataFrame.
+Method: transform.raw_weathers_data(), transform.transform_weather_data()
 
 # Query Results
-All query result will be shown on cmd once main.py is executed. After db structure and transformation you should see following options (as shown below). You can select any option with an integer, and the result will be shown. After that you will see the result, you can also download the result as CSV. It will be saved in 'Outputs' folder.
+After executing main.py, query results are displayed in the command prompt. Users can select options using integers, view the results, and download them as CSV files, saved in the 'Outputs' folder.
 1. Options
 
    
@@ -38,7 +50,7 @@ All query result will be shown on cmd once main.py is executed. After db structu
 
   <img width="350" alt="image" src="https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/c2ae32a6-befc-4c3b-a4bc-2f55f3dc642b">
 
-#Visualizations
+#Visualizations [Bonus]
 
 1. Comparision on MoM bassis for number of Unique Customers vs Customers.
    
