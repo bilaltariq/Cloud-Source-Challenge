@@ -1,5 +1,5 @@
 # Cloud-Source-Challenge
-The project is part of Cloud Source Assignment. 
+The project is part of Cloud Source Assignment for position of Data Engineer.
 
 # How to set up and run the data pipeline?
 Clone the Git repository; run pip install -r requirement.txt to download all libraries. After that run execute main.py. Ensure that 'sales_data.csv' is available in the Inputs folder (it is present by default).
