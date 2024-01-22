@@ -3,14 +3,20 @@ from pandas import json_normalize
 from database import Database
 import requests
 import os
+
 cwd = os.getcwd()
 SLSH = os.path.sep
+
 
 class DataSources:
     def __init__(self):
         db_name = cwd + SLSH + 'Database' + SLSH + 'primary.db'
         self.db_instance = Database(db_name)
 
+    """
+    Input is URL for weather API.
+    Return: JSON object from Weather API 
+    """
     def get_weather_data(self, url):
         try:
             print(url)
@@ -20,6 +26,11 @@ class DataSources:
         except:
             return None
 
+    """
+    Input is User data link
+    Return: Normalized Dataframe for users.
+    Reads data from Json link provided. 
+    """
     def read_json_user_data(self, link):
         response = requests.get(link)
         users_data = response.json()
@@ -31,9 +42,17 @@ class DataSources:
             axis=1).reset_index(drop=True)
         return df_expand
 
+    """
+    Return Sales file as Dataframe 
+    """
     def read_sales_data(self, path_to_file):
         return pd.read_csv(path_to_file, sep=',')
 
+    """
+    Inputs are lat, lng and url. Method first checks if lat and lng are available in Database, if not 
+    and data is fetched from API. 
+    Return: No returns, data is saved in DB. 
+    """
     def read_weather_data(self, table_name, lat, lng, url):
         self.db_instance.connect()
         data_stored_in_db = self.db_instance.select_table(table_name)

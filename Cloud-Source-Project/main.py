@@ -4,13 +4,25 @@ from database import Database
 from transform import TransformData
 from querymgt import QueryMgmt
 
+"""
+Default Variables
+"""
 SLSH = os.path.sep
 cwd = os.getcwd()
 
+"""
+Setting up sqlite3 database. Also it initializes Database class,
+which contains all dynamic methods to related to DB Management.
+"""
 db_name = cwd + SLSH + 'Database' + SLSH + 'primary.db'
 db_instance = Database(db_name)
 db_instance.initialize_tables()
 transform_data = TransformData(dbinstance=db_instance)
+
+"""
+Main worker class.
+It perform ELT for all data sources (where required)
+"""
 
 
 def worker(sales_file_path, link_to_json, weatherApi, key):
@@ -19,17 +31,24 @@ def worker(sales_file_path, link_to_json, weatherApi, key):
     users_data = transform_data.raw_users_data(link_to_json=link_to_json)
     users_data = transform_data.transform_users_data(users_data)
 
-    sales_users_data = sales_data.merge(users_data, how='left', left_on='customer_id', right_on='id')
+    sales_users_data = sales_data.merge(users_data, how='left', left_on='sales_customer_id', right_on='users_id')
 
     transform_data.raw_weathers_data(link_to_api=weatherApi, api_key=key, users_data=users_data)
     weather_details_df = transform_data.transform_weather_data()
 
     weather_details_df['coord_lon'] = pd.to_numeric(weather_details_df['coord_lon'], errors='coerce')
     weather_details_df['coord_lat'] = pd.to_numeric(weather_details_df['coord_lat'], errors='coerce')
-    sales_user_weather_df = pd.merge(sales_users_data, weather_details_df, how='left', left_on=['lng', 'lat']
+    sales_user_weather_df = pd.merge(sales_users_data, weather_details_df, how='left',
+                                     left_on=['users_lng', 'users_lat']
                                      , right_on=['coord_lon', 'coord_lat'])
 
+    transform_data.insert_final_table(sales_user_weather_df)
     return sales_user_weather_df
+
+
+"""
+This method to save query result as CSV in Outputs directory.
+"""
 
 
 def save_option(df):
@@ -41,15 +60,33 @@ def save_option(df):
 
 
 def main():
+    """
+    All URLs for Data source.
+    Key is sensitive data, ideally it should be fetched from environment variable.
+    """
     sales_file_path = cwd + SLSH + 'Inputs' + SLSH + 'sales_data.csv'
     link_to_json = "https://jsonplaceholder.typicode.com/users"
     weatherApi = "https://api.openweathermap.org/data/2.5/weather?"
     key = "b251aa99ea5b80b71785ff34d7da8056"
 
+    """
+    Send URL/Paths to worker class for process
+    """
     sales_user_weather_df = worker(sales_file_path, link_to_json, weatherApi, key)
+
+    """
+    All queries are in QueryMgmt. We pass the sales_user_weather_df in QueryMgmt.
+    This class has all business queries.
+    .transformation() add columns like qty_x_price, year, month, day, quarter.
+    """
     get_query_result = QueryMgmt(sales_user_weather_df)
     get_query_result.transformation()
 
+    """
+    This part is where we ask User to enter integer for query result.
+    Based on user input, function from query-mgmt is executed. 
+    After query is displayed, save_option() is executed, which provides user an option to save as csv.
+    """
     queries = {
         '1': get_query_result.total_sales_per_customer(),
         '2': get_query_result.avg_order_qty_per_product(),
@@ -94,4 +131,7 @@ def main():
 
 
 if __name__ == '__main__':
+    """
+    Program begins from here.
+    """
     main()
