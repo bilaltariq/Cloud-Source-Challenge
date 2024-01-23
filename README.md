@@ -6,10 +6,10 @@ The project is part of Cloud Source Assignment for position of Data Engineer.
 2. Run pip install -r requirement.txt to download all libraries.
 3. Run execute main.py. [From CMD in Windows run python main.py]
 
--> The program fetches data from all sources, stores it in SQLite3, and provides a list of queries for user selection (see "Query Result" section). 
--> User input is only required to see query results. 
--> Type 'exit' to end the program. 
--> In order to see data schema, you can download SQLite3 UI (Link to download: https://sqlitebrowser.org/dl/), open the 'Database/primary.db' file and you can query all tables.
++ The program fetches data from all sources, stores it in SQLite3, and provides a list of queries for user selection (see "Query Result" section). 
++ User input is only required to see query results. 
++ Type 'exit' to end the program. 
++ In order to see data schema, you can download SQLite3 UI (Link to download: https://sqlitebrowser.org/dl/), open the 'Database/primary.db' file and you can query all tables.
 
 # Code Structure
 The project is divided into four class. 
