@@ -22,9 +22,10 @@ The project is divided into four class.
 # Schema Details
 1. 1.1 relation between Users and Weather.
 2. 1.N (many) relation between Users and Sales.
+
 Column info this diagram below.
 
-![Untitled](https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/16e2d5ae-3a64-4f5e-9e3f-4d51a8dfd60f)
+   ![Untitled](https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/16e2d5ae-3a64-4f5e-9e3f-4d51a8dfd60f)
 
 # Data Transformations
 All transformations are available in transform.py.
@@ -42,20 +43,23 @@ Method: transform.raw_weathers_data(), transform.transform_weather_data()
 
 # Query Results
 After executing main.py, query results are displayed in the command prompt. Users can select options using integers, view the results, and download them as CSV files, saved in the 'Outputs' folder.
+
++ SQL scripts for each query are also saved in SQL folder.
+
 1. Options
 
    
-  <img width="350" alt="image" src="https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/45d19fc7-5ce2-4aea-92bf-3ad2e744aa4e">
+     <img width="350" alt="image" src="https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/45d19fc7-5ce2-4aea-92bf-3ad2e744aa4e">
 
 2. Result (after select 1 in options)
    
 
-  <img width="350" alt="image" src="https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/a5080a27-36e2-4c2f-bc98-a415fc4815d1">
+     <img width="350" alt="image" src="https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/a5080a27-36e2-4c2f-bc98-a415fc4815d1">
 
 3. Save as CSV
 
 
-  <img width="350" alt="image" src="https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/c2ae32a6-befc-4c3b-a4bc-2f55f3dc642b">
+     <img width="350" alt="image" src="https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/c2ae32a6-befc-4c3b-a4bc-2f55f3dc642b">
 
 # Visualizations [Bonus]
 
