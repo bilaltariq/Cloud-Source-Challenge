@@ -2,10 +2,14 @@
 The project is part of Cloud Source Assignment for position of Data Engineer.
 
 # How to set up and run the data pipeline?
-Clone the Git repository; run pip install -r requirement.txt to download all libraries. After that run execute main.py. Ensure that 'sales_data.csv' is available in the Inputs folder (it is present by default).
+1. Clone the Git repository
+2. Run pip install -r requirement.txt to download all libraries.
+3. Run execute main.py. [From CMD in Windows run python main.py]
 
-The program fetches data from all sources, stores it in SQLite3, and provides a list of queries for user selection (see "Query Result" section). Type 'exit' to exit the program. In order to see data schema, you can download SQLite3 UI (Link to download: https://sqlitebrowser.org/dl/), open the 'Database/primary.db' file and you can query all tables.
-
+-> The program fetches data from all sources, stores it in SQLite3, and provides a list of queries for user selection (see "Query Result" section). 
+-> User input is only required to see query results. 
+-> Type 'exit' to end the program. 
+-> In order to see data schema, you can download SQLite3 UI (Link to download: https://sqlitebrowser.org/dl/), open the 'Database/primary.db' file and you can query all tables.
 
 # Code Structure
 The project is divided into four class. 
@@ -53,20 +57,27 @@ After executing main.py, query results are displayed in the command prompt. User
 
   <img width="350" alt="image" src="https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/c2ae32a6-befc-4c3b-a4bc-2f55f3dc642b">
 
-#Visualizations [Bonus]
+# Visualizations [Bonus]
 
-1. Comparision on MoM bassis for number of Unique Customers vs Customers.
+1. Total sales amount per customer
    
-![newplot](https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/5f1449df-96f7-4699-97b0-36df3c542602)
+   ![newplot (4)](https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/21460892-0f11-41b5-9ab4-8037f6f7bec7)
 
-2. MoM comparision with total orders and Sales.
+2. Month-on-Month Sales comparison
    
-![newplot (1)](https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/edff2eb9-e3da-48f9-b730-96b8084bd81d)
+   ![newplot (5)](https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/6a6053f9-a0c0-4dc5-bc75-f03c98fa92e5)
 
+3. Month-on-Month Difference in Customers.
+   
+   ![newplot (6)](https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/36fcbd88-998c-4c94-bb96-dd12e666ec00)
 
+4. Weather vs Sales Trend Month Wise
+   
+   ![newplot (7)](https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/73ac1d5f-0629-40c9-a35e-eeaa62fc5307)
 
+5. Top 20 Product and their sales in each Weather.
 
-
+   ![newplot (9)](https://github.com/bilaltariq/Cloud-Source-Challenge/assets/10683094/4c0b7a3c-32a5-4392-92b7-26832229ec93)
 
 
 
