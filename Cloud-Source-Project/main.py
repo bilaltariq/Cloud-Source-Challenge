@@ -67,7 +67,7 @@ def main():
     sales_file_path = cwd + SLSH + 'Inputs' + SLSH + 'sales_data.csv'
     link_to_json = "https://jsonplaceholder.typicode.com/users"
     weatherApi = "https://api.openweathermap.org/data/2.5/weather?"
-    key = "b251aa99ea5b80b71785ff34d7da8056"
+    key = "b251aa99ea5b80b71785tmpff34d7da8056"
 
     """
     Send URL/Paths to worker class for process
