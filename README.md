@@ -1,6 +1,3 @@
-# Cloud-Source-Challenge
-The project is part of Cloud Source Assignment for position of Data Engineer.
-
 # How to set up and run the data pipeline?
 1. Clone the Git repository
 2. Run pip install -r requirement.txt to download all libraries.
